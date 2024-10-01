@@ -101,8 +101,15 @@ blob_fixups: blob_fixups_user_type = {
     .add_needed(
         'libhidlbase_shim.so',
     ),
+<<<<<<< HEAD
 =======
 >>>>>>> d14a06e (sm8550-common: Use python version of extract-utils)
+=======
+    'vendor/lib64/libqcodec2_core.so': blob_fixup()
+    .add_needed(
+        'libcodec2_shim.so'
+    ),
+>>>>>>> 3346446 (sm8550-common: Resolve missing symbols on libqcodec2_core)
 }  # fmt: skip
 
 module = ExtractUtilsModule(
