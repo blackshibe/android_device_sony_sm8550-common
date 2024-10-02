@@ -525,6 +525,9 @@ PRODUCT_PACKAGES += \
     android.hidl.memory.block@1.0.vendor \
     vendor.qti.hardware.systemhelper@1.0.vendor
 
+# RIL fix
+PRODUCT_USE_SCUDO := true
+
 # Update engine
 PRODUCT_PACKAGES += \
     update_engine \
