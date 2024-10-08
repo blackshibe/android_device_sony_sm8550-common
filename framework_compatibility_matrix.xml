@@ -149,4 +149,13 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <!-- not sure if it's needed -->
+    <hal format="hidl">
+        <name>vendor.dolby.hardware.dms</name>
+        <version>2.0</version>
+        <interface>
+            <name>IDms</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
