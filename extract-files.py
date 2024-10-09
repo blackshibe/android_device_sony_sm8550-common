@@ -96,10 +96,13 @@ blob_fixups: blob_fixups_user_type = {
     .replace_needed(
         'android.hardware.light-V1-ndk_platform.so', 'android.hardware.light-V1-ndk.so'
     ),
+<<<<<<< HEAD
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
     .add_needed(
         'libhidlbase_shim.so',
     ),
+=======
+>>>>>>> d14a06e (sm8550-common: Use python version of extract-utils)
 }  # fmt: skip
 
 module = ExtractUtilsModule(
