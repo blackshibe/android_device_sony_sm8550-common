@@ -186,6 +186,10 @@ PRODUCT_PACKAGES += \
     android.hardware.drm@1.3.vendor \
     android.hardware.drm-service.clearkey
 
+# Dummy sony packages
+PRODUCT_PACKAGES += \
+    com.sony.idd_dummy \
+    com.sony.device
 
 # Enforce generic ramdisk allow list
 $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
@@ -476,6 +480,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
 # Telephony
 PRODUCT_PACKAGES += \
+    SonyEuicc \
     extphonelib \
     extphonelib-product \
     extphonelib.xml \
@@ -511,9 +516,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal-engine.conf:$(TARGET_COPY_OUT_VENDOR)/etc/thermal-engine.conf
 
-# # Touch
-# PRODUCT_PACKAGES += \
-#     vendor.lineage.touch@1.0-service.sony
+# Touch
+PRODUCT_PACKAGES += \
+    vendor.lineage.touch@1.0-service.sony
 
 # Media Codec2 modules
 PRODUCT_PACKAGES += \
@@ -527,7 +532,7 @@ PRODUCT_PACKAGES += \
     android.hardware.media.c2@1.0.vendor \
     android.hardware.media.c2@1.1.vendor \
     android.hardware.media.c2@1.2.vendor
-
+    
 # Trusted User Interface
 PRODUCT_PACKAGES += \
     android.hidl.memory.block@1.0.vendor \
@@ -620,6 +625,10 @@ PRODUCT_BOOT_JARS += \
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/privapp-permissions-wfd.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-wfd.xml
+
+# XperiaParts
+PRODUCT_PACKAGES += \
+    XperiaParts
 
 # Inherit from proprietary files makefile
 $(call inherit-product, vendor/sony/sm8550-common/sm8550-common-vendor.mk)
