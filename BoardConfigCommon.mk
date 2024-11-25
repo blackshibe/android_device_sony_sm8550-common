@@ -48,13 +48,6 @@ TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := kryo300
 
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-2a
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := generic
-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a75
-
 # Boot
 BOARD_BOOT_HEADER_VERSION := 4
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOT_HEADER_VERSION)
@@ -130,8 +123,18 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/wlan/qcacld-3.0/.kiwi_v2 \
     qcom/opensource/bt-kernel \
     nxp/opensource/driver \
-    sony/sony_camera \
-    sony/lxs_ts
+    cirrus/kernel-modules/cs35l45/sound/soc/codecs \
+    cirrus/kernel-modules/cs40l25/drivers/misc \
+    cirrus/kernel-modules/cs40l25/sound/soc/codecs \
+    semc/hardware/camera-kernel-module/camera_sync \
+    semc/hardware/camera-kernel-module/hdmi_detect \
+    semc/hardware/camera-kernel-module/slg51000_regulator \
+    semc/hardware/camera-kernel-module/sony_camera \
+    semc/hardware/charge/kernel-modules/battchg_ext \
+    semc/hardware/charge/kernel-modules/battman_dbg \
+    semc/hardware/kernel-modules/misc/et6xx \
+    semc/hardware/kernel-modules/misc/ldo_vibrator \
+    semc/hardware/kernel-modules/msm/lxs_ts
 
 # Platform
 TARGET_BOARD_PLATFORM := kalama
@@ -157,6 +160,7 @@ AUDIO_FEATURE_ENABLED_SVA_MULTI_STAGE := true
 BOARD_SUPPORTS_OPENSOURCE_STHAL := true
 BOARD_SUPPORTS_SOUND_TRIGGER := true
 BOARD_USES_ALSA_AUDIO := true
+TARGET_PROVIDES_AUDIO_HAL := true
 TARGET_USES_QCOM_MM_AUDIO := true
 
 # Filesystem
@@ -176,7 +180,9 @@ DEVICE_FRAMEWORK_MANIFEST_FILE += $(COMMON_PATH)/framework_manifest.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := \
     $(COMMON_PATH)/manifest.xml \
-    $(COMMON_PATH)/network_manifest.xml
+    $(COMMON_PATH)/network_manifest.xml \
+    hardware/qcom-caf/sm8550/audio/primary-hal/configs/common/manifest_non_qmaa.xml \
+    hardware/qcom-caf/sm8550/audio/primary-hal/configs/common/manifest_non_qmaa_extn.xml
 
 # Lineage Touch HAL
 $(call soong_config_set,sony_touch,panel,lxs_ts)
