@@ -106,29 +106,20 @@ blob_fixups: blob_fixups_user_type = {
     .replace_needed(
         'android.hardware.light-V1-ndk_platform.so', 'android.hardware.light-V1-ndk.so'
     ),
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
     (
         'vendor/etc/seccomp_policy/wfdhdcphalservice.policy',
     ): blob_fixup()
     .add_line_if_missing(
         'gettid: 1'
     ),
->>>>>>> 07e6aca (sm8550-common: Address seccomp filter failures)
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
     .add_needed(
         'libhidlbase_shim.so',
     ),
-<<<<<<< HEAD
-=======
->>>>>>> d14a06e (sm8550-common: Use python version of extract-utils)
-=======
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
     .add_needed(
         'libcodec2_shim.so'
     ),
->>>>>>> 3346446 (sm8550-common: Resolve missing symbols on libqcodec2_core)
 }  # fmt: skip
 
 module = ExtractUtilsModule(
