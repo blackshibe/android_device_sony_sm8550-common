@@ -141,6 +141,10 @@ blob_fixups: blob_fixups_user_type = {
     .add_needed(
         'libbase_shim.so'
     ),
+    'vendor/bin/hw/android.hardware.biometrics.fingerprint@2.1-service-rbs': blob_fixup()
+    .add_needed(
+        'libbase_shim.so'
+    )
 }  # fmt: skip
 
 module = ExtractUtilsModule(
