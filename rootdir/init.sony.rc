@@ -22,10 +22,14 @@ on boot
     chown system system /sys/devices/virtual/input/lxs_ts_input/enable_knock
     chown system system /sys/devices/dsi_panel_driver/pre_sod_mode
 
-on post-fs
+on early-init
     # radio
+    wait /dev/block/by-name/LTALabel
     exec_start msim_sh
-    setprop persist.radio.multisim.config ${vendor.radio.multisim.config}
+    setprop ro.boot.product.hardware.sku ${vendor.radio.hardware.sku}
+
+on post-fs
+    setprop persist.radio.multisim.config ${vendor.radio.hardware.sku}${vendor.radio.hardware.sku}
     setprop ro.vendor.ltalabel.model ${vendor.radio.ltalabel.model}
 
 on property:vendor.post_boot.parsed=1
@@ -86,3 +90,6 @@ on property:ro.vendor.ltalabel.model=XQ-DE72
 
 on property:sys.boot_completed=1
      swapon_all /vendor/etc/fstab.zram
+
+on init
+    write /sys/kernel/cnss/recovery 1
